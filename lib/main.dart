@@ -10,15 +10,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Design Practice',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return Container(
+      color: Colors.grey.shade200,
+      child: Center(
+        // Keeps the app always at 9 / 16 aspect ratio so
+        // we don't need to worry about responsiveness
+        child: AspectRatio(
+          aspectRatio: 9 / 16,
+          child: MaterialApp(
+            title: 'Flutter Design Practice',
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+            ),
+            routes: {
+              '/': (_) => const Home(),
+              '/cryptofo': (_) => const Cryptofo(),
+            },
+          ),
+        ),
       ),
-      routes: {
-        '/': (_) => const Home(),
-        '/cryptofo': (_) => const Cryptofo(),
-      },
     );
   }
 }
@@ -28,28 +38,18 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.grey.shade200,
-      child: Center(
-        // Keeps the app always at 9 / 16 aspect ratio so
-        // we don't need to worry about responsiveness
-        child: AspectRatio(
-          aspectRatio: 9 / 16,
-          child: Scaffold(
-            appBar: AppBar(title: const Text('Flutter Design Practice')),
-            body: SizedBox.expand(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () => _push(context, '/cryptofo'),
-                    child: const Text('Cryptofo'),
-                  ),
-                ],
-              ),
+    return Scaffold(
+      appBar: AppBar(title: const Text('Flutter Design Practice')),
+      body: SizedBox.expand(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () => _push(context, '/cryptofo'),
+              child: const Text('Cryptofo'),
             ),
-          ),
+          ],
         ),
       ),
     );

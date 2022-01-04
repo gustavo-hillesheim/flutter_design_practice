@@ -5,6 +5,8 @@ class Cryptofo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('Cryptofo');
+    return const Scaffold(
+      body: Center(child: Text('Cryptofo')),
+    );
   }
 }
