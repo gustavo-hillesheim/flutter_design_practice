@@ -1,5 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_design_practice/cryptofo.dart';
+import 'package:flutter_design_practice/crypto_wallet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,16 +17,20 @@ class MyApp extends StatelessWidget {
         // Keeps the app always at 9 / 16 aspect ratio so
         // we don't need to worry about responsiveness
         child: AspectRatio(
-          aspectRatio: 9 / 16,
-          child: MaterialApp(
-            title: 'Flutter Design Practice',
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
+          aspectRatio: 9 / 18,
+          child: ClipRect(
+            child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Flutter Design Practice',
+              scrollBehavior: CustomScrollBehavior(),
+              theme: ThemeData(
+                primarySwatch: Colors.blue,
+              ),
+              routes: {
+                '/': (_) => const Home(),
+                '/crypto-wallet': (_) => const CryptoWallet(),
+              },
             ),
-            routes: {
-              '/': (_) => const Home(),
-              '/cryptofo': (_) => const Cryptofo(),
-            },
           ),
         ),
       ),
@@ -46,8 +51,8 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () => _push(context, '/cryptofo'),
-              child: const Text('Cryptofo'),
+              onPressed: () => _push(context, '/crypto-wallet'),
+              child: const Text('Crypto Wallet'),
             ),
           ],
         ),
@@ -58,4 +63,12 @@ class Home extends StatelessWidget {
   void _push(BuildContext context, String route) {
     Navigator.of(context).pushNamed(route);
   }
+}
+
+class CustomScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }
