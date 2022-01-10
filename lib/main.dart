@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_design_practice/christmas_app_onboarding.dart';
 import 'package:flutter_design_practice/crypto_wallet.dart';
 
 void main() {
@@ -29,6 +30,8 @@ class MyApp extends StatelessWidget {
               routes: {
                 '/': (_) => const Home(),
                 '/crypto-wallet': (_) => const CryptoWallet(),
+                '/christmas-app-onboarding': (_) =>
+                    const ChristmasAppOnBoarding(),
               },
             ),
           ),
@@ -53,6 +56,11 @@ class Home extends StatelessWidget {
             ElevatedButton(
               onPressed: () => _push(context, '/crypto-wallet'),
               child: const Text('Crypto Wallet'),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () => _push(context, '/christmas-app-onboarding'),
+              child: const Text('Christmas App OnBoarding'),
             ),
           ],
         ),
