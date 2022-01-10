@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:cryptocoins_icons/cryptocoins_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_design_practice/original_design_reference.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Asset {
@@ -121,6 +122,10 @@ class _AppBar extends StatelessWidget {
             ],
           ),
           const Spacer(),
+          const OriginalDesignButton(
+            url: 'https://dribbble.com/shots/17181645-Cryptofo-App-Interaction',
+          ),
+          const SizedBox(width: 16),
           const _CustomIconButton(icon: Icons.notifications_outlined),
         ],
       ),
