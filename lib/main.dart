@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_design_practice/animated_fan_controller.dart';
 import 'package:flutter_design_practice/christmas_app_onboarding.dart';
 import 'package:flutter_design_practice/crypto_wallet.dart';
 
@@ -32,6 +33,8 @@ class MyApp extends StatelessWidget {
                 '/crypto-wallet': (_) => const CryptoWallet(),
                 '/christmas-app-onboarding': (_) =>
                     const ChristmasAppOnBoarding(),
+                '/animated-fan-controller': (_) =>
+                    const AnimatedFanController(),
               },
             ),
           ),
@@ -61,6 +64,11 @@ class Home extends StatelessWidget {
             ElevatedButton(
               onPressed: () => _push(context, '/christmas-app-onboarding'),
               child: const Text('Christmas App OnBoarding'),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () => _push(context, '/animated-fan-controller'),
+              child: const Text('Animated Fan Controller'),
             ),
           ],
         ),
